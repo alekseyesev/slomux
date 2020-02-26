@@ -1,5 +1,7 @@
 /// <reference types="react-scripts" />
 
+type action = "CHANGE_INTERVAL";
+
 interface TimerComponentProps {
   currentInterval: number;
 }
