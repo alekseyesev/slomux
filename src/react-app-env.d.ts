@@ -2,6 +2,11 @@
 
 type action = "CHANGE_INTERVAL";
 
+interface ActionWithPayload {
+  type: action;
+  payload?: number;
+}
+
 interface TimerComponentProps {
   currentInterval: number;
 }
