@@ -5,5 +5,9 @@ interface TimerComponentProps {
 }
 
 interface TimerComponentState {
-    currentTime: number;
-  }
+  currentTime: number;
+}
+
+interface IntervalComponentProps extends TimerComponentProps {
+  changeInterval: (number) => void;
+}
