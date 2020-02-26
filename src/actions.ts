@@ -1,5 +1,5 @@
 // actions
-const CHANGE_INTERVAL: action = "CHANGE_INTERVAL";
+export const CHANGE_INTERVAL: action = "CHANGE_INTERVAL";
 
 // action creators
 export const changeInterval = (value: number) => ({
