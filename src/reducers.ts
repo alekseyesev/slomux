@@ -1,11 +1,16 @@
 import { CHANGE_INTERVAL } from "./actions";
 
 // reducers
-export const reducer = (state: number, action: ActionWithPayload) => {
+export const reducer = (state: number, action: ActionWithPayload): number => {
   switch (action.type) {
     case CHANGE_INTERVAL:
-      return action.payload ? (state += action.payload) : state;
+      // Add validation
+      return typeof action.payload === "undefined" ||
+        (state === 0 && action.payload < 0)
+        ? state
+        : (state += action.payload);
     default:
-      return {};
+      // Replace empty object literal to state ({} -> state)
+      return state;
   }
 };

@@ -1,11 +1,14 @@
-import IntervalComponent from './components/IntervalComponent';
+import IntervalComponent from "./IntervalComponent";
+import { changeInterval } from "../actions";
+import { connect } from "../vendors/react-slomux";
 
 const Interval = connect(
-  dispatch => ({
-    changeInterval: value => dispatch(changeInterval(value))
-  }),
+  // Change arguments order
   state => ({
     currentInterval: state
+  }),
+  dispatch => ({
+    changeInterval: (value: number) => dispatch(changeInterval(value))
   })
 )(IntervalComponent);
 

@@ -1,10 +1,14 @@
 import React from "react";
+import PropTypes from "proptypes";
 
 export const connect = (
   mapStateToProps: (state: number, props: any) => {},
   mapDispatchToProps: (dispatch: Function, props: any) => {}
-) => (Component: React.FC) => {
+) => (Component: React.ComponentClass<any>) => {
   class WrappedComponent extends React.Component {
+    static contextTypes = {
+      store: PropTypes.object
+    };
     render() {
       return (
         <Component
@@ -14,8 +18,8 @@ export const connect = (
         />
       );
     }
-
-    componentDidUpdate() {
+    // Replace method componentDidUpdate with componentDidMount
+    componentDidMount() {
       this.context.store.subscribe(this.handleChange);
     }
 
@@ -24,9 +28,9 @@ export const connect = (
     };
   }
 
-  //   WrappedComponent.contextTypes = {
-  //     store: PropTypes.object
-  //   };
+  // WrappedComponent.contextTypes = {
+  //   store: PropTypes.object
+  // };
 
   return WrappedComponent;
 };

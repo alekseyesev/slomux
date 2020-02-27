@@ -18,3 +18,5 @@ interface TimerComponentState {
 interface IntervalComponentProps extends TimerComponentProps {
   changeInterval: (number) => void;
 }
+
+declare module 'proptypes';
