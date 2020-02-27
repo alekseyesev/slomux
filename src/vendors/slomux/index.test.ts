@@ -10,7 +10,7 @@ let store: {
 
 describe("store", () => {
   it("should create an app store", () => {
-    store = createStore(reducer);
+    store = createStore(reducer, 0);
     expect(store.getState).toBeDefined();
     expect(store.dispatch).toBeDefined();
     expect(store.subscribe).toBeDefined();

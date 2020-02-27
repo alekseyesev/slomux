@@ -1,7 +1,10 @@
 import { CHANGE_INTERVAL } from "./actions";
 
 // reducers
-export const reducer = (state: number, action: ActionWithPayload): number => {
+export const reducer = (
+  state: number = 0 /* Add default value */,
+  action: ActionWithPayload
+): number => {
   switch (action.type) {
     case CHANGE_INTERVAL:
       // Add validation
